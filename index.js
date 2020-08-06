@@ -27,11 +27,12 @@ function processFirstItem(stringList, callback) {
  * Study the code for counter1 and counter2. Answer the questions below.
  * 
  * 1. What is the difference between counter1 and counter2?
- * 
+ *    A: The `count` variable scope changes, first it's in a function scope and after that it's in a global scope.
  * 2. Which of the two uses a closure? How can you tell?
- * 
+ *    A: The first one, you can tell by looking into the variables that uses are not global scope.
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ *    A: couter1 is better when all the process is going to be done in the same function and you want to protect your code from other functions. counter2 it will only be useful if the variable is going to be
+ *    re-used later along the code.
 */
 
 // counter1 code
@@ -56,10 +57,16 @@ function counter2() {
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning(){
+  let inningScore = [];
+  for (i = 0; i <= 8; i++){
+  score = {
+    home : Math.floor(Math.random()*3),
+    away : Math.floor(Math.random()*3),
+  }
+    inningScore.push(score);
+  }
+  return inningScore;
 }
 
 /* Task 3: finalScore()
@@ -76,10 +83,17 @@ finalScore(inning, 9) might return:
 
 */ 
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore (callback){
+  let home = 0;
+  let away = 0;
+  let inningScore = callback;
+  for (i = 0; i <= (callback.length-1); i++){
+    home = home + callback[i].home;
+    away = away + callback[i].away;
+  }
+  console.log (callback);
+  let finalScore={home,away,inningScore};
+  return finalScore;
 }
 
 /* Task 4: 
@@ -103,8 +117,24 @@ and returns the score at each pont in the game, like so:
 Final Score: awayTeam - homeTeam */
 
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
+function scoreboard(getInningScore,inning,TotalInnings) {
+  getInningScore(inning);
+  // for (i = 0; i <= TotalInnings; i++) {
+//       if (callback1.indexOf(x) = 0){
+//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away} `);
+//        }
+//        else if (i = 1){
+//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away} `);
+//        }
+//        else if (i = 3){
+//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away}`);
+//        }
+//        else {
+//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away}`);
+//        }
+//      }
+  //  }
 }
 
+console.log(scoreboard(finalScore(),inning,9));
 
