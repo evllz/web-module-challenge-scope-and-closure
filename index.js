@@ -91,7 +91,6 @@ function finalScore (callback){
     home = home + callback[i].home;
     away = away + callback[i].away;
   }
-  console.log (callback);
   let finalScore={home,away,inningScore};
   return finalScore;
 }
@@ -118,23 +117,25 @@ Final Score: awayTeam - homeTeam */
 
 
 function scoreboard(getInningScore,inning,TotalInnings) {
-  getInningScore(inning);
-  // for (i = 0; i <= TotalInnings; i++) {
-//       if (callback1.indexOf(x) = 0){
-//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away} `);
-//        }
-//        else if (i = 1){
-//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away} `);
-//        }
-//        else if (i = 3){
-//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away}`);
-//        }
-//        else {
-//         console.log(`${callback1.indexOf(x)}st inning: ${x.Home - x.Away}`);
-//        }
-//      }
-  //  }
-}
 
-console.log(scoreboard(finalScore(),inning,9));
+  for (i = 0; i <= (TotalInnings-1); i++) {
+    if (i == 0){
+      console.log(`${i+1}st inning: ${getInningScore.inningScore[i].home} - ${getInningScore.inningScore[i].away} `);
+    }
+    else if (i == 1){
+      console.log(`${i+1}nd inning: ${getInningScore.inningScore[i].home} - ${getInningScore.inningScore[i].away} `);
+    }
+    else if (i == 2){
+      console.log(`${i+1}rd inning: ${getInningScore.inningScore[i].home} - ${getInningScore.inningScore[i].away} `);
+    }
+    else {
+      console.log(`${i+1}th inning: ${getInningScore.inningScore[i].home} - ${getInningScore.inningScore[i].away} `);
+    }
+  }
+  console.log(`Final Socre: ${getInningScore.home} - ${getInningScore.away}`)
+}
+scoreboard(finalScore(inning()),inning(),9);
+
+
+
 
